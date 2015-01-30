@@ -88,7 +88,7 @@ public class GcmIntentService extends IntentService {
 
         mBuilder.setContentIntent(contentIntent);
         
-        Uri sound = Uri.parse("android.resource://" + getPackageName() + "/music/iphone5notification");
+        Uri sound = Uri.parse("android.resource://" + getPackageName() + "/raw/iphone5notification");
         mBuilder.setSound(sound);
         
         mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
