@@ -12,31 +12,66 @@ public class Meeting implements Parcelable{
     private long startDate;
     public long endDate;
     
+    /**
+     * @param client
+     */
     public Meeting(String client){
 		this.client = client;
 	}
     
+    /**
+     * @param client
+     * @param reason
+     */
     public Meeting(String client, String reason){
 		this(client);
 		this.reason = reason;
 	}
     
+    /**
+     * @param client
+     * @param reason
+     * @param startDate
+     */
     public Meeting(String client, String reason, long startDate){
 		this(client, reason);
 		this.startDate = startDate;
 	}
     
+    /**
+     * @param id
+     * @param client
+     * @param reason
+     * @param startDate
+     */
     public Meeting(int id, String client, String reason, long startDate){
 		this(client, reason, startDate);
 		this.id = id;
 	}
     
+    /**
+     * @param id
+     * @param categoryId
+     * @param client
+     * @param adviser
+     * @param reason
+     * @param startDate
+     */
     public Meeting(int id, int categoryId, String client, String adviser, String reason, long startDate) {
     	this(id, client, reason, startDate);
 		this.categoryId = categoryId;
 		this.adviser = adviser;
 	}
 	
+    /**
+     * @param id
+     * @param categoryId
+     * @param client
+     * @param adviser
+     * @param reason
+     * @param startDate
+     * @param endDate
+     */
 	public Meeting(int id, int categoryId, String client, String adviser, String reason, long startDate, long endDate) {
 		this(id, categoryId, client, adviser, reason, startDate);
 		this.endDate = endDate;
@@ -88,7 +123,6 @@ public class Meeting implements Parcelable{
 	
 	@Override
 	public int describeContents() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 	
@@ -114,7 +148,6 @@ public class Meeting implements Parcelable{
         }
     };
 
-    // example constructor that takes a Parcel and gives you an object populated with it's values
     private Meeting(Parcel in) {
     	id = in.readInt();
     	categoryId = in.readInt();

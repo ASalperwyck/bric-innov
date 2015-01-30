@@ -13,7 +13,17 @@ public class Product implements Parcelable{
 	private int subCategoryId;
 	private String barcode;
 	private byte[] image;
-
+	
+	/**
+	 * @param id
+	 * @param title
+	 * @param description
+	 * @param price
+	 * @param categoryId
+	 * @param subCategoryId
+	 * @param barcode
+	 * @param image
+	 */
 	public Product(int id, String title, String description, float price, int categoryId, int subCategoryId, String barcode, byte[] image) {
 		this.id = id;
 		this.title = title;
@@ -91,7 +101,6 @@ public class Product implements Parcelable{
 	
 	@Override
 	public int describeContents() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 	
@@ -119,7 +128,6 @@ public class Product implements Parcelable{
         }
     };
 
-    // example constructor that takes a Parcel and gives you an object populated with it's values
     private Product(Parcel in) {
     	id = in.readInt();
 		title = in.readString();

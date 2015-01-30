@@ -80,7 +80,6 @@ public class Category implements Parcelable{
 
 	@Override
 	public int describeContents() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 	
@@ -104,7 +103,6 @@ public class Category implements Parcelable{
         }
     };
 
-    // example constructor that takes a Parcel and gives you an object populated with it's values
     private Category(Parcel in) {
         id = in.readInt();
         name = in.readString();
