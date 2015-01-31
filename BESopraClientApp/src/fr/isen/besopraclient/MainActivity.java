@@ -9,6 +9,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -19,9 +22,28 @@ public class MainActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		Spinner mySpinnerView = (Spinner) this.findViewById(R.id.categorySpinner);
+		Spinner mySpinnerViewCategory = (Spinner) this.findViewById(R.id.categorySpinner);
+		Spinner mySpinnerViewSubCategory = (Spinner) this.findViewById(R.id.subCategorySpinner);
 		ArrayAdapter<Category> customAdapter = new ArrayAdapter<Category>(this,android.R.layout.simple_spinner_item, DataManager.getCategoryList());
-		mySpinnerView.setAdapter(customAdapter);
+		final ArrayAdapter<Category> customSubAdapter = new ArrayAdapter<Category>(this,android.R.layout.simple_spinner_item, DataManager.getSubCategoryOf(-1));
+		
+		mySpinnerViewCategory.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+		    @Override
+		    public void onNothingSelected(AdapterView<?> parentView) {
+		    }
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+				Category c = (Category) parent.getItemAtPosition(position);
+				customSubAdapter.clear();
+				customSubAdapter.addAll(DataManager.getSubCategoryOf(c.getId()));
+			}
+
+		});
+		
+		mySpinnerViewCategory.setAdapter(customAdapter);
+		mySpinnerViewSubCategory.setAdapter(customSubAdapter);
 		
 		new GetCategoryData(customAdapter).execute();
 	}
