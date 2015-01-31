@@ -44,7 +44,20 @@ public class MainActivity extends ActionBarActivity {
 				customProductAdapter.clear();
 				customProductAdapter.addAll(DataManager.getProductOfCategory(c.getId()));
 			}
+		});
+		
+		mySpinnerViewSubCategory.setOnItemSelectedListener(new OnItemSelectedListener() {
 
+		    @Override
+		    public void onNothingSelected(AdapterView<?> parentView) {
+		    }
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+				Category subc = (Category) parent.getItemAtPosition(position);
+				customProductAdapter.clear();
+				customProductAdapter.addAll(DataManager.getProductOfSubCategory(subc.getId()));
+			}
 		});
 		
 		mySpinnerViewCategory.setAdapter(customAdapter);
