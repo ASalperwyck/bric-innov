@@ -1,6 +1,7 @@
 package fr.isen.besopraclient.data;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import fr.isen.besopraclient.model.*;
@@ -75,6 +76,30 @@ public class DataManager {
 			for(Category c : categoryList){
 				if(c.getSubCategory() == id){
 					list.add(c);
+				}
+			}
+		}
+		return list;
+	}
+
+	public static List<Product> getProductOfCategory(int id) {
+		List<Product> list = new ArrayList<Product>();
+		if(id > 0){
+			for(Product p : productList){
+				if(p.getCategoryId() == id){
+					list.add(p);
+				}
+			}
+		}
+		return list;
+	}
+	
+	public static List<Product> getProductOfSubCategory(int id) {
+		List<Product> list = new ArrayList<Product>();
+		if(id > 0){
+			for(Product p : productList){
+				if(p.getSubCategoryId() == id){
+					list.add(p);
 				}
 			}
 		}
