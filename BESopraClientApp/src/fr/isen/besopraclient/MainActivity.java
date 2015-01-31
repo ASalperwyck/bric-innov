@@ -1,9 +1,16 @@
 package fr.isen.besopraclient;
 
+import java.util.Collection;
+
+import fr.isen.besopraclient.data.DataManager;
+import fr.isen.besopraclient.data.GetCategoryData;
+import fr.isen.besopraclient.model.Category;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -11,6 +18,12 @@ public class MainActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		final Spinner mySpinnerView = (Spinner) this.findViewById(R.id.categorySpinner);
+		final ArrayAdapter<Category> customAdapter = new ArrayAdapter<Category>(this,android.R.layout.simple_spinner_item, DataManager.getCategoryList());
+		mySpinnerView.setAdapter(customAdapter);
+		
+		new GetCategoryData(customAdapter).execute();
 	}
 
 	@Override
