@@ -19,8 +19,8 @@ public class MainActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		final Spinner mySpinnerView = (Spinner) this.findViewById(R.id.categorySpinner);
-		final ArrayAdapter<Category> customAdapter = new ArrayAdapter<Category>(this,android.R.layout.simple_spinner_item, DataManager.getCategoryList());
+		Spinner mySpinnerView = (Spinner) this.findViewById(R.id.categorySpinner);
+		ArrayAdapter<Category> customAdapter = new ArrayAdapter<Category>(this,android.R.layout.simple_spinner_item, DataManager.getCategoryList());
 		mySpinnerView.setAdapter(customAdapter);
 		
 		new GetCategoryData(customAdapter).execute();

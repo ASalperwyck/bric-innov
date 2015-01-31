@@ -37,7 +37,7 @@ public class GetCategoryData extends AsyncTask<String, Integer, List<Category>>
 	protected void onPostExecute(List<Category> data) {
 		DataManager.setCategoryList(data);
 		this.adapter.clear();
-		this.adapter.addAll(data);
+		this.adapter.addAll(DataManager.getCategoryOnly());
 		this.adapter.notifyDataSetChanged();
 		super.onPostExecute(data);
 	}
@@ -52,7 +52,7 @@ public class GetCategoryData extends AsyncTask<String, Integer, List<Category>>
 				for(int i=0; i< categoriesJsonArray.length(); i++)
 				{
 					JSONObject categoryJson = categoriesJsonArray.getJSONObject(i);
-					Category c = new Category(Integer.parseInt(categoryJson.getString("Id")), categoryJson.getString("Name"));
+					Category c = new Category(Integer.parseInt(categoryJson.getString("Id")), categoryJson.getString("Name"), categoryJson.getString("Advisers"), categoryJson.getString("Description"), categoryJson.getString("SubCategoryOf").equals("null") ? -1 : Integer.parseInt(categoryJson.getString("SubCategoryOf")));
 					categories.add(c);
 				}	
 			}

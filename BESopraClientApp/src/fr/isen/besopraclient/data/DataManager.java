@@ -58,4 +58,26 @@ public class DataManager {
 	public static void setMeetingList(List<Meeting> meetingList) {
 		DataManager.meetingList = meetingList;
 	}
+	
+	public static List<Category> getCategoryOnly(){
+		List<Category> list = new ArrayList<Category>();
+		for(Category c : categoryList){
+			if(c.getSubCategory() == -1){
+				list.add(c);
+			}
+		}
+		return list;
+	}
+	
+	public static List<Category> getSubCategoryOf(int id){
+		List<Category> list = new ArrayList<Category>();
+		if(id > 0){
+			for(Category c : categoryList){
+				if(c.getSubCategory() == id){
+					list.add(c);
+				}
+			}
+		}
+		return list;
+	}
 }
