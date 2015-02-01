@@ -10,8 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class AccountActivity extends ActionBarActivity {
 	
@@ -27,8 +27,8 @@ public class AccountActivity extends ActionBarActivity {
     	   EditText et = (EditText)this.findViewById(R.id.accountNameEditText);
     	   et.setText(accountName, TextView.BufferType.EDITABLE);
     	   Button b = (Button)this.findViewById(R.id.validateButton);
-    	   b.setText(R.string.change);
-        }
+    	   b.setText(R.string.change);	    	   
+	    }
 		
 		ImageButton b = (ImageButton) this.findViewById(R.id.imageButtonAccount);
 		b.setImageResource(R.drawable.ic_account_back);

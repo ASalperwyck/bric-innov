@@ -7,6 +7,25 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="fr.isen.besopraclient.AdviserActivity" >
+    
+    <TextView 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="@string/yourMeetings"
+	    android:id="@+id/textYourMeetings"/>
+    
+    <ListView
+	    android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+	    android:textColor="#46c830"
+	    android:layout_below="@+id/textYourMeetings"
+	    android:id="@+id/meetingListView"/>
+    
+    <include layout="@layout/category"
+        	 android:id="@+id/categoryModule"     
+        	 android:layout_width="fill_parent"
+    		 android:layout_height="wrap_content"
+    		 android:layout_below="@id/meetingListView"/>
 
 	<include layout="@layout/footer"/>
 </RelativeLayout>

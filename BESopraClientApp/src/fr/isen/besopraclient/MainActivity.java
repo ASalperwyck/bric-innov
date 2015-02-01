@@ -18,7 +18,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -47,7 +46,7 @@ public class MainActivity extends ActionBarActivity {
 		Spinner mySpinnerViewCategory = (Spinner) this.findViewById(R.id.categorySpinner);
 		Spinner mySpinnerViewSubCategory = (Spinner) this.findViewById(R.id.subCategorySpinner);
 		ListView myProductListView = (ListView) this.findViewById(R.id.productListView);
-		ArrayAdapter<Category> customAdapter = new ArrayAdapter<Category>(this,android.R.layout.simple_spinner_item, DataManager.getCategoryList());
+		ArrayAdapter<Category> customAdapter = new ArrayAdapter<Category>(this,android.R.layout.simple_spinner_item, DataManager.getCategoryOnly());
 		final ArrayAdapter<Category> customSubAdapter = new ArrayAdapter<Category>(this,android.R.layout.simple_spinner_item, DataManager.getSubCategoryOf(-1));
 		final ListForProductAdapter customProductAdapter = new ListForProductAdapter(this,R.layout.row_layout,DataManager.getProductList());
 		

@@ -30,7 +30,6 @@ public class GetProductData extends AsyncTask<String, Integer, List<Product>>
 	public GetProductData(){
 		this.client = new DefaultHttpClient();
 	}
-	
 
 	@Override
 	protected void onPostExecute(List<Product> data) {
@@ -82,7 +81,6 @@ public class GetProductData extends AsyncTask<String, Integer, List<Product>>
 			HttpEntity e = response.getEntity();
 			String data = EntityUtils.toString(e);
 			JSONArray productsData = new JSONArray(data);
-			System.out.println("ProductDataOK");
 
 			return productsData;
 		}

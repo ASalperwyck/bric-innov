@@ -1,5 +1,10 @@
 package fr.isen.besopraclient;
 
+import fr.isen.besopraclient.Adapter.ListForMeetingAdapter;
+import fr.isen.besopraclient.Adapter.ListForProductAdapter;
+import fr.isen.besopraclient.data.DataManager;
+import fr.isen.besopraclient.data.GetMeetingData;
+import fr.isen.besopraclient.model.Category;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,16 +13,54 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.AdapterView.OnItemSelectedListener;
 
 public class AdviserActivity extends ActionBarActivity {
 	
 	public static final String PROPERTY_ACCOUNT = "account_name";
+	private String accountName;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_adviser);
+		
+		this.accountName = this.getAccountName(getApplicationContext());
+		if(!this.accountName.isEmpty()){
+			ListForMeetingAdapter customMeetingAdapter = new ListForMeetingAdapter(this,R.layout.list_meeting_row_item,DataManager.getMeetingList());
+			ListView myMeetingListView = (ListView) this.findViewById(R.id.meetingListView);
+			myMeetingListView.setAdapter(customMeetingAdapter);
+			
+			new GetMeetingData(customMeetingAdapter, this.accountName).execute();
+			
+			//Spinner categories
+    	    Spinner mySpinnerViewCategory = (Spinner) this.findViewById(R.id.categorySpinner);
+	   		Spinner mySpinnerViewSubCategory = (Spinner) this.findViewById(R.id.subCategorySpinner);
+	   		ArrayAdapter<Category> customAdapter = new ArrayAdapter<Category>(this,android.R.layout.simple_spinner_item, DataManager.getCategoryOnly());
+	   		final ArrayAdapter<Category> customSubAdapter = new ArrayAdapter<Category>(this,android.R.layout.simple_spinner_item, DataManager.getSubCategoryOf(-1));
+	   		
+	   		mySpinnerViewCategory.setOnItemSelectedListener(new OnItemSelectedListener() {
+	
+	   		    @Override
+	   		    public void onNothingSelected(AdapterView<?> parentView) {
+	   		    }
+	
+	   			@Override
+	   			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+	   				Category c = (Category) parent.getItemAtPosition(position);
+	   				customSubAdapter.clear();
+	   				customSubAdapter.addAll(DataManager.getSubCategoryOf(c.getId()));
+	   			}
+	   		});
+	   		
+	   		mySpinnerViewCategory.setAdapter(customAdapter);
+	   		mySpinnerViewSubCategory.setAdapter(customSubAdapter);
+		}
 		
 		ImageButton b = (ImageButton) this.findViewById(R.id.imageButtonAdviser);
 		b.setImageResource(R.drawable.ic_adviser_back);
