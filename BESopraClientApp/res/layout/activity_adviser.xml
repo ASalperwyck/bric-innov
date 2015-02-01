@@ -42,7 +42,8 @@
         android:layout_below="@+id/categoryModule"
         android:textColor="#FFFFFF"
 	    android:background="#71B718"
-        android:text="@string/askMeeting" />
+        android:text="@string/askMeeting"
+        android:onClick="askMeetingClick" />
     
     <TextView 
 	    android:layout_width="wrap_content"
@@ -59,7 +60,8 @@
         android:layout_below="@+id/textScanProduct"
         android:textColor="#FFFFFF"
 	    android:background="#71B718"
-        android:text="@string/scan" />
+        android:text="@string/scan"
+        android:onClick="scanProductClick" />
 
 	<include layout="@layout/footer"/>
 </RelativeLayout>

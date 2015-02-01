@@ -17,4 +17,10 @@
     <string name="askMeeting">Prendre rendez-vous</string>
     <string name="scanProduct">Scanner un produit</string>
 	<string name="scan">Scan</string>
+	<string name="confirm">Confirmer</string>
+	<string name="cancel">Annuler</string>
+	<string name="returnText">Retour</string>
+	<string name="ok">OK</string>
+	<string name="yes">Oui</string>
+	<string name="no">No</string>
 </resources>
