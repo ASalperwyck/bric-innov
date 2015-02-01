@@ -13,7 +13,7 @@ public class CartActivity extends ActionBarActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_adviser);
+		setContentView(R.layout.activity_cart);
 		
 		ImageButton b = (ImageButton) this.findViewById(R.id.imageButtonCart);
 		b.setImageResource(R.drawable.ic_cart_back);

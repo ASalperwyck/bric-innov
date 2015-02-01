@@ -1,6 +1,8 @@
 package fr.isen.besopraclient;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -9,6 +11,8 @@ import android.view.View;
 import android.widget.ImageButton;
 
 public class AdviserActivity extends ActionBarActivity {
+	
+	public static final String PROPERTY_ACCOUNT = "account_name";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,15 @@ public class AdviserActivity extends ActionBarActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	private String getAccountName(Context context) {
+	    final SharedPreferences prefs = getSharedPreferences(AccountActivity.class.getSimpleName(), Context.MODE_PRIVATE);
+	    String accountName = prefs.getString(PROPERTY_ACCOUNT, "");
+	    if (accountName.isEmpty()) {
+	        return "";
+	    }	    
+	    return accountName;
 	}
 	
 	public void changeActivityClick(View v){

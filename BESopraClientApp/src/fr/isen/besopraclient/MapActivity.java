@@ -13,7 +13,7 @@ public class MapActivity extends ActionBarActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_adviser);
+		setContentView(R.layout.activity_map);
 		
 		ImageButton b = (ImageButton) this.findViewById(R.id.imageButtonMap);
 		b.setImageResource(R.drawable.ic_map_back);

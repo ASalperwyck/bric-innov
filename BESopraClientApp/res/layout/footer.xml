@@ -14,6 +14,7 @@
         android:layout_weight="1"
         android:onClick="changeActivityClick"
         android:tag="account"
+        android:contentDescription="@string/desc"
         />
     
     <ImageButton
@@ -25,6 +26,7 @@
         android:layout_weight="1"
         android:onClick="changeActivityClick"
         android:tag="search"
+        android:contentDescription="@string/desc"
         />
     
     <ImageButton
@@ -36,6 +38,7 @@
         android:layout_weight="1"
         android:onClick="changeActivityClick"
         android:tag="map"
+        android:contentDescription="@string/desc"
         />
     
     <ImageButton
@@ -47,6 +50,7 @@
         android:layout_weight="1"
         android:onClick="changeActivityClick"
         android:tag="cart"
+        android:contentDescription="@string/desc"
         />
     
     <ImageButton
@@ -58,5 +62,6 @@
         android:layout_weight="1"
         android:onClick="changeActivityClick"
         android:tag="adviser"
+        android:contentDescription="@string/desc"
         />
 </LinearLayout>

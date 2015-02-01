@@ -7,6 +7,11 @@
     <string name="imageItemContentDescription">Image</string>
     <string name="category">Catégories</string>
     <string name="subcategory">Sous-catégories</string>
+    <string name="desc">Description</string>
+    <string name="accountName">Nom de compte :</string>
+    <string name="name">Nom</string>
+    <string name="validate">Valider</string>
+    <string name="change">Changer</string>
     
 
 </resources>

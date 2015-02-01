@@ -1,19 +1,34 @@
 package fr.isen.besopraclient;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.ImageButton;
 
 public class AccountActivity extends ActionBarActivity {
+	
+	public static final String PROPERTY_ACCOUNT = "account_name";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_adviser);
+		setContentView(R.layout.activity_account);
+		
+		String accountName = getAccountName(getApplicationContext());
+        if(!accountName.isEmpty()){
+    	   EditText et = (EditText)this.findViewById(R.id.accountNameEditText);
+    	   et.setText(accountName, TextView.BufferType.EDITABLE);
+    	   Button b = (Button)this.findViewById(R.id.validateButton);
+    	   b.setText(R.string.change);
+        }
 		
 		ImageButton b = (ImageButton) this.findViewById(R.id.imageButtonAccount);
 		b.setImageResource(R.drawable.ic_account_back);
@@ -36,6 +51,31 @@ public class AccountActivity extends ActionBarActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	private void storeAccountName(Context context, String accountName) {
+        final SharedPreferences prefs = getSharedPreferences(AccountActivity.class.getSimpleName(), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(PROPERTY_ACCOUNT, accountName);
+        editor.commit();
+    }	
+	
+	private String getAccountName(Context context) {
+	    final SharedPreferences prefs = getSharedPreferences(AccountActivity.class.getSimpleName(), Context.MODE_PRIVATE);
+	    String accountName = prefs.getString(PROPERTY_ACCOUNT, "");
+	    if (accountName.isEmpty()) {
+	        return "";
+	    }	    
+	    return accountName;
+	}
+	
+	public void validateClick(View v){
+		EditText et = (EditText)this.findViewById(R.id.accountNameEditText);
+		if(!et.getText().toString().isEmpty()){
+			this.storeAccountName(getApplicationContext(), et.getText().toString());
+			Button b = (Button)this.findViewById(R.id.validateButton);
+	    	b.setText(R.string.change);
+		}
 	}
 	
 	public void changeActivityClick(View v){
