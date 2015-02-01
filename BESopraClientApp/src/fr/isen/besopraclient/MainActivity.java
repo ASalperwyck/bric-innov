@@ -6,6 +6,7 @@ import fr.isen.besopraclient.data.GetCategoryData;
 import fr.isen.besopraclient.data.GetProductData;
 import fr.isen.besopraclient.model.Category;
 import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,15 +14,20 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Spinner;
 
+//Activité correspondant à l'onglet recherche
 public class MainActivity extends ActionBarActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		ImageButton b = (ImageButton) this.findViewById(R.id.imageButtonSearch);
+		b.setImageResource(R.drawable.ic_search_back);
 		
 		Spinner mySpinnerViewCategory = (Spinner) this.findViewById(R.id.categorySpinner);
 		Spinner mySpinnerViewSubCategory = (Spinner) this.findViewById(R.id.subCategorySpinner);
@@ -85,5 +91,32 @@ public class MainActivity extends ActionBarActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	public void changeActivityClick(View v){
+		String tag = (String)v.getTag();
+		if(tag.equals("account")){
+			Intent intent = new Intent(MainActivity.this, AccountActivity.class);
+			startActivity(intent);
+			finish();
+		}
+		else if(tag.equals("search")){
+			
+		}
+		else if(tag.equals("map")){
+			Intent intent = new Intent(MainActivity.this, MapActivity.class);
+			startActivity(intent);
+			finish();
+		}
+		else if(tag.equals("cart")){
+			Intent intent = new Intent(MainActivity.this, CartActivity.class);
+			startActivity(intent);
+			finish();
+		}
+		else if(tag.equals("adviser")){
+			Intent intent = new Intent(MainActivity.this, AdviserActivity.class);
+			startActivity(intent);
+			finish();
+		}
 	}
 }

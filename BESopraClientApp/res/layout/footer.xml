@@ -6,47 +6,57 @@
     android:layout_alignParentBottom="true">
     
     <ImageButton
-        android:id="@+id/imageButton1"
+        android:id="@+id/imageButtonAccount"
         android:layout_width="match_parent" 
         android:layout_height="wrap_content"
         android:src="@drawable/ic_account"
         android:background="@android:color/transparent"
         android:layout_weight="1"
+        android:onClick="changeActivityClick"
+        android:tag="account"
         />
     
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/imageButtonSearch"
         android:layout_width="match_parent" 
         android:layout_height="wrap_content"
         android:src="@drawable/ic_search"
         android:background="@android:color/transparent"
         android:layout_weight="1"
+        android:onClick="changeActivityClick"
+        android:tag="search"
         />
     
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/imageButtonMap"
         android:layout_width="match_parent" 
         android:layout_height="wrap_content"
         android:src="@drawable/ic_map"
         android:background="@android:color/transparent"
         android:layout_weight="1"
+        android:onClick="changeActivityClick"
+        android:tag="map"
         />
     
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/imageButtonCart"
         android:layout_width="match_parent" 
         android:layout_height="wrap_content"
         android:src="@drawable/ic_cart"
         android:background="@android:color/transparent"
         android:layout_weight="1"
+        android:onClick="changeActivityClick"
+        android:tag="cart"
         />
     
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/imageButtonAdviser"
          android:layout_width="match_parent" 
         android:layout_height="wrap_content"
         android:src="@drawable/ic_adviser"
         android:background="@android:color/transparent"
         android:layout_weight="1"
+        android:onClick="changeActivityClick"
+        android:tag="adviser"
         />
 </LinearLayout>
