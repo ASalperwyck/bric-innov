@@ -5,5 +5,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="imageItemContentDescription">Image</string>
+    <string name="category">Catégories</string>
+    <string name="subcategory">Sous-catégories</string>
+    
 
 </resources>

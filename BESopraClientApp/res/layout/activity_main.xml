@@ -7,26 +7,25 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="fr.isen.besopraclient.MainActivity" >
-  
-    <Spinner
-        android:id="@+id/categorySpinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true" />
+  	
+    <SearchView 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_centerHorizontal="true"
+	    android:id="@+id/ItemSearchView"/>
     
-    <Spinner
-        android:id="@+id/subCategorySpinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true" 
-        android:layout_below="@id/categorySpinner"/>
+    <include layout="@layout/category"
+        	 android:id="@+id/categoryModule"     
+        	 android:layout_width="fill_parent"
+    		 android:layout_height="wrap_content"
+    		 android:layout_below="@id/ItemSearchView"/>
     
     <ListView 
         android:id="@+id/productListView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/subCategorySpinner"/>
+        android:layout_below="@+id/categoryModule"/>
 
 	<include layout="@layout/footer"/>
 </RelativeLayout>
