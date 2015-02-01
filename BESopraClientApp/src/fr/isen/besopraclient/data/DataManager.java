@@ -1,7 +1,6 @@
 package fr.isen.besopraclient.data;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import fr.isen.besopraclient.model.*;
