@@ -21,11 +21,45 @@
 	    android:layout_below="@+id/textYourMeetings"
 	    android:id="@+id/meetingListView"/>
     
+    <TextView 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="@string/needAdvisor"
+	    android:id="@+id/textNeedAdvisor"
+	    android:layout_below="@id/meetingListView"/>
+    
     <include layout="@layout/category"
         	 android:id="@+id/categoryModule"     
         	 android:layout_width="fill_parent"
     		 android:layout_height="wrap_content"
-    		 android:layout_below="@id/meetingListView"/>
+    		 android:layout_below="@id/textNeedAdvisor"/>
+    
+    <Button
+        android:id="@+id/askMeetingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/categoryModule"
+        android:textColor="#FFFFFF"
+	    android:background="#71B718"
+        android:text="@string/askMeeting" />
+    
+    <TextView 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="@string/scanProduct"
+	    android:id="@+id/textScanProduct"
+	    android:layout_below="@id/askMeetingButton"/>
+    
+     <Button
+        android:id="@+id/scanButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/textScanProduct"
+        android:textColor="#FFFFFF"
+	    android:background="#71B718"
+        android:text="@string/scan" />
 
 	<include layout="@layout/footer"/>
 </RelativeLayout>

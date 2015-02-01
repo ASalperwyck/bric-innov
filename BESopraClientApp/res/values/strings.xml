@@ -13,6 +13,8 @@
     <string name="validate">Valider</string>
     <string name="change">Changer</string>
     <string name="yourMeetings">Mes rendez-vous :</string>
-    
-
+    <string name="needAdvisor">Besoin d\'un conseiller ?</string>
+    <string name="askMeeting">Prendre rendez-vous</string>
+    <string name="scanProduct">Scanner un produit</string>
+	<string name="scan">Scan</string>
 </resources>
